@@ -16,5 +16,8 @@ int main(){
             }
         }
     }
+
+    crearEvento();
+
     return 0;
 }
