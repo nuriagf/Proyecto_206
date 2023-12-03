@@ -1,7 +1,6 @@
 #include "funciones.h"
 
 int main(){
-    crearEvento();
 
     std::string usuario1, contrasena1;
 
@@ -17,5 +16,7 @@ int main(){
         }
     }
     
+    crearEvento();
+
     return 0;
 }

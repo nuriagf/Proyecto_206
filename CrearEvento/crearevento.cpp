@@ -63,7 +63,6 @@ bool guardarEvento(std::string& nombre, std::string& tipo, std::string& descripc
     archivo << "Nombre: " << nombre << std::endl; 
     archivo << "Tipo: " << tipo << std::endl; 
     archivo << "Descripcion: " << descripcion << std::endl; 
-    //poner prueba de que fecha inicio no puede ser más tarde que fecha fin
     archivo << "Fecha inicio: " << fechaInicio << std::endl; 
     archivo << "Fecha fin: " << fechaFin << std::endl; 
     archivo << "Duracion: " << duracion << std::endl; 
