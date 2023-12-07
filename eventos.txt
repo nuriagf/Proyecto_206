@@ -1,0 +1,31 @@
+
+Nombre: as
+Tipo: j3oi
+Descripcion: 
+Fecha inicio: j3oi
+Fecha fin: j3oi
+Duracion: 0
+Nombre: er
+Tipo: ad
+Descripcion: hola estoy haciendo una prueb 
+Nombre: Quimica aplicada  
+Tipo: Congreso
+Descripcion: Este es un congreso para los alumnos de quimica 
+Fecha inicio: 2023-12-09
+Fecha fin: 2023-12-20
+Duracion: 45
+
+Nombre: Seminario sobre aspectos juridicos de la Gestion Universitaria 
+Tipo: seminario
+Descripcion: 
+Fecha inicio: 2024-02-01
+Fecha fin: 2024-02-17
+Duracion: 30
+
+Nombre: AGR
+Tipo: Congreso
+Descripcion: jnf ndjksn 
+Fecha inicio: 2023-12-05
+Fecha fin: 2023-12-03
+Duracion: 123
+
