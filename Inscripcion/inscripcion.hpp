@@ -1,5 +1,5 @@
-#ifndef REGISTRO_H
-#define REGISTRO_H
+#ifndef INSCRIPCION_H
+#define INSCRIPCION_H
 
 #include <iostream>
 #include <string>
