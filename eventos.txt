@@ -1,24 +1,21 @@
-
-Nombre: as
-Tipo: j3oi
-Descripcion: 
-Fecha inicio: j3oi
-Fecha fin: j3oi
-Duracion: 0
-Nombre: er
-Tipo: ad
-Descripcion: hola estoy haciendo una prueb 
-Nombre: Quimica aplicada  
-Tipo: Congreso
-Descripcion: Este es un congreso para los alumnos de quimica 
-Fecha inicio: 2023-12-09
-Fecha fin: 2023-12-20
+Nombre: Hola estoy probando  
+Tipo: congreso
+Descripcion: esto es una prueba  
+Fecha inicio: 2023-12-08
+Fecha fin: 2023-12-30
 Duracion: 45
 
-Nombre: Seminario sobre aspectos juridicos de la Gestion Universitaria 
-Tipo: seminario
-Descripcion: 
-Fecha inicio: 2024-02-01
-Fecha fin: 2024-02-17
+Nombre: Quimica avanzada 
+Tipo: ponencia
+Descripcion: Esto es una ponencia de quimica avanzada 
+Fecha inicio: 2024-01-10
+Fecha fin: 2024-02-03
 Duracion: 30
+
+Nombre: Informatica libre 
+Tipo: taller
+Descripcion: Esto es un taller de informatica 
+Fecha inicio: 2024-01-10
+Fecha fin: 2024-01-20
+Duracion: 130
 

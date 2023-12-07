@@ -32,7 +32,7 @@ bool comprobarUsuario(std::string& usuario){
     }
     char tipoUsuario = usuario[2];
     if (tipoUsuario != '1' && tipoUsuario != '2') {
-        std::cout << "Tipo de usuario no reconocido. El tercer carácter debe ser '1' o '2'. Intente nuevamente." << std::endl;
+        std::cout << "Tipo de usuario no reconocido. El tercer caracter debe ser '1' o '2'. Intente nuevamente." << std::endl;
         correcto=false;
     }
     return correcto;
@@ -42,10 +42,10 @@ bool inicioSesion(std::string& usuario, std::string& contrasena) {
 
     bool correcto;
     if (validarUsuario(usuario, contrasena)) {
-        std::cout << "Inicio de sesión exitoso." << std::endl;
+        std::cout << "Inicio de sesion exitoso." << std::endl;
         correcto=true;
     } else {
-        std::cout << "Usuario o contraseña incorrectos. Intente nuevamente." << std::endl;
+        std::cout << "Usuario o contrasena incorrectos. Intente nuevamente." << std::endl;
         correcto=false;
     }
     return correcto;  
