@@ -11,5 +11,6 @@ bool guardarEvento(std::string& nombre, std::string& tipo, std::string& descripc
 bool validarUsuario(std::string& usuario, std::string& contrasena);
 bool inicioSesion(std::string& usuario, std::string& contrasena);
 bool comprobarUsuario(std:: string& usuario);
+void registrarUsuario(const std::string& usuario, const std::string& contrasena);
 
 #endif
