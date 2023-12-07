@@ -90,7 +90,7 @@ void introducirTipoEvento(std::string& tipo) {
             break;
         }
         else {
-            std::cout << "No es ni congreso, ni ponencia, ni taller, ni seminario. Intentalo de nuevo" << std::endl;
+            std::cout << "No es congreso, ni ponencia, ni taller, ni seminario. Intentalo de nuevo" << std::endl;
         }
     }
 }

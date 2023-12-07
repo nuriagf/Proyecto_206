@@ -19,3 +19,9 @@ Fecha inicio: 2024-01-10
 Fecha fin: 2024-01-20
 Duracion: 130
 
+Nombre: AGR
+Tipo: Congreso
+Descripcion: jnf ndjksn 
+Fecha inicio: 2023-12-05
+Fecha fin: 2023-12-03
+Duracion: 123

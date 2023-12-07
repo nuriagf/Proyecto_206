@@ -11,7 +11,6 @@
 bool validarUsuario(std::string& usuario, std::string& contrasena);
 bool inicioSesion(std::string& usuario, std::string& contrasena);
 bool comprobarUsuario(std:: string& usuario);
-
 void crearEvento();
 void introducirNombre(std::string &nombre);
 bool comprobarEvento(std::string& nombre);
