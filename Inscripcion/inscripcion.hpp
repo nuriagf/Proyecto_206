@@ -1,5 +1,5 @@
-#ifndef REGISTRO_H
-#define REGISTRO_H
+#ifndef INSCRIPCION_H
+#define INSCRIPCION_H
 
 #include <iostream>
 #include <string>
@@ -12,7 +12,7 @@ struct Evento
     int aforo;
     std::vector<std::string> usuariosPreinscritos;
 };
-
+0
 struct Usuario
 {
     std::string nombreUsuario;

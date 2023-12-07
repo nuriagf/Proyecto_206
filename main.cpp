@@ -10,13 +10,15 @@ int main(){
         if(comprobarUsuario(usuario1)){
             std::cout << "Ingrese la contrasena: ";
             std::cin >> contrasena1;
-            if(inicioSesion(usuario1, contrasena1)){
-                break;
-            }
+            registrarUsuario(usuario1, contrasena1);
+            break;
+            //if(inicioSesion(usuario1, contrasena1)){
+               // break;
+           // }
         }
     }
     
-    crearEvento();
+    //crearEvento();
 
     return 0;
 }
