@@ -2,7 +2,7 @@
 
 int main(){
 
-    /*std::string usuario1, contrasena1;
+    std::string usuario1, contrasena1;
 
     while (true){
         std::cout << "Ingrese el nombre de usuario: ";
@@ -14,7 +14,7 @@ int main(){
                 break;
             }
         }
-    }*/
+    }
     
     crearEvento();
 
