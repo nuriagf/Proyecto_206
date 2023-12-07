@@ -9,7 +9,7 @@ void crearEvento() {
     introducirTipoEvento(tipo);
     //prueba de que solo se ponga taller congreso ponencia y seminario
 
-    std::cout << "Introduzce una descripcion del evento (pulsa -enter- en una linea vacia para fianlizar)" << std::endl; 
+    std::cout << "Introduzce una descripcion del evento (pulsa -enter- en una linea vacia para fianlizar)." << std::endl; 
 
     std::cin.ignore();//limpiar buffer
 
@@ -26,18 +26,18 @@ void crearEvento() {
     //prueba de que fecha de inicio no puede ser después de fecha final 
     introducirFechas(fechaInicio, fechaFin);
     
-    std::cout << "Introduzca duracion del evento(en minutos)" << std::endl; 
+    std::cout << "Introduzca duracion del evento(en minutos)." << std::endl; 
     std::cin >> duracion;
 
     if(guardarEvento(nombre, tipo, descripcion, fechaInicio, fechaFin, duracion)) 
-        std::cout << "Guardado evento con exito" << std::endl; 
+        std::cout << "Guardado evento con exito." << std::endl; 
     
 }
 
 void introducirNombre(std::string &nombre) {
 
     while(true) {
-        std::cout << "Introduzca el nombre del evento (pulsa -enter- en una linea vacia para fianlizar)" << std::endl; 
+        std::cout << "Introduzca el nombre del evento (pulsa -enter- en una linea vacia para fianlizar)." << std::endl; 
         std::cin >> nombre;
 
         while (true) {
@@ -52,7 +52,7 @@ void introducirNombre(std::string &nombre) {
         }
 
         if(comprobarEvento(nombre)) {
-            std::cout << "El nombre del evento ya existe. Introduce otro" << std::endl; 
+            std::cout << "El nombre del evento ya existe. Introduce otro." << std::endl; 
         }
         else {
             break;
@@ -64,7 +64,7 @@ bool comprobarEvento(std::string& nombre) {
     std::ifstream archivo("eventos.txt");
 
     if (!archivo.is_open()) {
-        std::cerr << "Error al abrir el archivo de eventos" << std::endl;
+        std::cerr << "Error al abrir el archivo de eventos." << std::endl;
         return false;
     }
 
@@ -83,14 +83,14 @@ bool comprobarEvento(std::string& nombre) {
 
 void introducirTipoEvento(std::string& tipo) {
     while(true) {
-        std::cout << "Introduzca el tipo de evento (congreso, ponencia, taller, seminario)" << std::endl; 
+        std::cout << "Introduzca el tipo de evento (congreso, ponencia, taller, seminario)." << std::endl; 
         std::cin >> tipo;
 
         if (comprobarTipoEvento(tipo)) { //si el tipo de evento no es ninguno de los cuatro lo vuelve a pedir
             break;
         }
         else {
-            std::cout << "No es congreso, ni ponencia, ni taller, ni seminario. Intentalo de nuevo" << std::endl;
+            std::cout << "No es congreso, ni ponencia, ni taller, ni seminario. Intentalo de nuevo." << std::endl;
         }
     }
 }
@@ -105,17 +105,17 @@ bool comprobarTipoEvento(std::string& tipo) {
 
 void introducirFechas(std::string& fechaInicio, std::string& fechaFin) {
     while(true) {
-        std::cout << "Introduzca fecha de inicio (AAAA-MM-DD)" << std::endl; 
+        std::cout << "Introduzca fecha de inicio (AAAA-MM-DD)." << std::endl; 
         std::cin >> fechaInicio;
 
-        std::cout << "Introduzca fecha de fin (AAAA-MM-DD)" << std::endl; 
+        std::cout << "Introduzca fecha de fin (AAAA-MM-DD)." << std::endl; 
         std::cin >> fechaFin;
 
         if (comprobarFechas(fechaInicio, fechaFin)){
             break; 
         }
         else {
-            std::cout << "Intentalo otra vez" << std::endl; 
+            std::cout << "Intentalo otra vez." << std::endl; 
         }
     }
 }
@@ -135,7 +135,7 @@ bool comprobarFechas (std::string& fechaInicio, std::string& fechaFin) {
     if (std::mktime(&tmFin) >= std::mktime(&tmInicio)) { //mktime convierte estructura std::tm a time_t 
         return true; 
     } else {
-        std::cout << "La fecha de fin es anterior a la fecha de inicio" << std::endl;
+        std::cout << "La fecha de fin es anterior a la fecha de inicio." << std::endl;
         return false;
     }
 }
@@ -144,7 +144,7 @@ bool guardarEvento(std::string& nombre, std::string& tipo, std::string& descripc
     std::ofstream archivo("eventos.txt", std::ios::app); //añadir al final del fichero 
 
     if (!archivo.is_open()) {
-        std::cerr << "Error al abrir el archivo de eventos" << std::endl;
+        std::cerr << "Error al abrir el archivo de eventos." << std::endl;
         return false;
     }
 
