@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #include "inscripcion.hpp"
 
 bool verificarDetallesPago(const std::string& numeroTarjeta, const std::string& nombreUsuario)
@@ -150,4 +149,3 @@ void preinscribirEvento(Usuario usuario, Evento& evento)
         preinscribirSinTarifa(usuario, evento);
     }
 }
->>>>>>> Inscripcion
