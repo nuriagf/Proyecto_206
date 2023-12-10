@@ -157,7 +157,7 @@ void menuUsuario() {
                 break;
             
             case 2: 
-                
+                preinscribirEvento();
                 break; 
 
             case 3: 

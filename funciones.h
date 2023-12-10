@@ -36,13 +36,13 @@ void introducirTipoEvento(std::string& tipo);
 bool comprobarTipoEvento(std::string& tipo);
 bool comprobarFechas (std::string& fechaInicio, std::string& fechaFin);
 void introducirFechas(std::string& fechaInicio, std::string& fechaFin);
-bool guardarEvento(std::string& nombre, std::string& tipo, std::string& descripcion, int precio, std::string& fechaInicio, std::string& fechaFin, int duracion); 
+bool guardarEvento(std::string& nombre, std::string& tipo, std::string& descripcion, int precio, int aforo, std::string& fechaInicio, std::string& fechaFin, int duracion); 
 
 void preinscribirSinTarifa(Usuario usuario, Evento& evento);
 void cancelarPreinscripcion();
 void manejarErrorPago();
 void sinAforoDisponible();
-bool verificarDetallesPago(const std::string& numeroTarjeta);
+bool verificarDetallesPago(std::string& numeroTarjeta);
 
 // Función para preinscribirse en un evento
 void preinscribirEvento(Usuario usuario, Evento& evento);

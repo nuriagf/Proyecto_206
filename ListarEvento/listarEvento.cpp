@@ -10,7 +10,7 @@ void listarEvento() {
 
     std::string linea; 
     while(getline(archivo, linea)) {
-        std:: string nombre, tipo, descripcion, precio, fechaInicio, fechaFin, duracion; 
+        std:: string nombre, tipo, descripcion, precio, aforo, fechaInicio, fechaFin, duracion; 
         std::stringstream stream(linea); //convertir string a stream
 
         //Extraemos los datos
@@ -18,6 +18,7 @@ void listarEvento() {
         getline(stream, tipo);
         getline(stream, descripcion);
         getline(stream, precio);
+        getline(stream, aforo);
         getline(stream, fechaInicio);
         getline(stream, fechaFin);
         getline(stream, duracion);
@@ -28,6 +29,7 @@ void listarEvento() {
         std::cout << tipo; 
         std::cout << descripcion; 
         std::cout << precio; 
+        std::cout << aforo; 
         std::cout << fechaInicio; 
         std::cout << fechaFin; 
         std::cout << duracion; 
