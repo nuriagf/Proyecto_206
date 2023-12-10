@@ -2,7 +2,7 @@
 
 void crearEvento() {
     std:: string nombre, tipo, descripcion, fechaInicio, fechaFin; 
-    int duracion; 
+    int precio, duracion; 
 
     introducirNombre(nombre);
     
@@ -24,12 +24,15 @@ void crearEvento() {
         descripcion += linea + " "; 
     }
     //prueba de que fecha de inicio no puede ser después de fecha final 
+    std::cout << "Introduzca precio del evento." << std::endl; 
+    std::cin >> precio;
+
     introducirFechas(fechaInicio, fechaFin);
-    
+
     std::cout << "Introduzca duracion del evento(en minutos)." << std::endl; 
     std::cin >> duracion;
 
-    if(guardarEvento(nombre, tipo, descripcion, fechaInicio, fechaFin, duracion)) 
+    if(guardarEvento(nombre, tipo, descripcion, precio, fechaInicio, fechaFin, duracion)) 
         std::cout << "Guardado evento con exito." << std::endl; 
     
 }
@@ -140,7 +143,7 @@ bool comprobarFechas (std::string& fechaInicio, std::string& fechaFin) {
     }
 }
 
-bool guardarEvento(std::string& nombre, std::string& tipo, std::string& descripcion, std::string& fechaInicio, std::string& fechaFin, int duracion) {
+bool guardarEvento(std::string& nombre, std::string& tipo, std::string& descripcion, int precio, std::string& fechaInicio, std::string& fechaFin, int duracion) {
     std::ofstream archivo("eventos.txt", std::ios::app); //añadir al final del fichero 
 
     if (!archivo.is_open()) {
@@ -151,6 +154,7 @@ bool guardarEvento(std::string& nombre, std::string& tipo, std::string& descripc
     archivo << "Nombre: " << nombre << std::endl; 
     archivo << "Tipo: " << tipo << std::endl; 
     archivo << "Descripcion: " << descripcion << std::endl; 
+    archivo << "Precio: " << precio << std::endl; 
     archivo << "Fecha inicio: " << fechaInicio << std::endl; 
     archivo << "Fecha fin: " << fechaFin << std::endl; 
     archivo << "Duracion: " << duracion << std::endl; 

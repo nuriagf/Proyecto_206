@@ -1,6 +1,7 @@
 Nombre: Hola estoy probando  
 Tipo: congreso
 Descripcion: esto es una prueba  
+Precio: 0
 Fecha inicio: 2023-12-08
 Fecha fin: 2023-12-30
 Duracion: 45
@@ -8,6 +9,7 @@ Duracion: 45
 Nombre: Quimica avanzada 
 Tipo: ponencia
 Descripcion: Esto es una ponencia de quimica avanzada 
+Precio: 20
 Fecha inicio: 2024-01-10
 Fecha fin: 2024-02-03
 Duracion: 30
@@ -15,6 +17,7 @@ Duracion: 30
 Nombre: Informatica libre 
 Tipo: taller
 Descripcion: Esto es un taller de informatica 
+Precio: 33
 Fecha inicio: 2024-01-10
 Fecha fin: 2024-01-20
 Duracion: 130
@@ -22,6 +25,8 @@ Duracion: 130
 Nombre: AGR
 Tipo: Congreso
 Descripcion: jnf ndjksn 
+Precio: 0
 Fecha inicio: 2023-12-05
 Fecha fin: 2023-12-03
 Duracion: 123
+

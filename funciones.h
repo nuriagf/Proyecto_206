@@ -7,6 +7,7 @@
 #include <ctime>
 #include <sstream>
 #include <iomanip> 
+#include <vector>
 
 struct Evento
 {
@@ -26,7 +27,7 @@ bool validarUsuario(std::string& usuario, std::string& contrasena);
 bool inicioSesion(std::string& usuario, std::string& contrasena);
 bool comprobarUsuario(std:: string& usuario);
 
-void registrarUsuario(const std::string& usuario, const std::string& contrasena);
+bool registrarUsuario(std::string& usuario, std::string& contrasena);
 
 void crearEvento();
 void introducirNombre(std::string &nombre);
@@ -35,7 +36,7 @@ void introducirTipoEvento(std::string& tipo);
 bool comprobarTipoEvento(std::string& tipo);
 bool comprobarFechas (std::string& fechaInicio, std::string& fechaFin);
 void introducirFechas(std::string& fechaInicio, std::string& fechaFin);
-bool guardarEvento(std::string& nombre, std::string& tipo, std::string& descripcion, std::string& fechaInicio, std::string& fechaFin, int duracion); 
+bool guardarEvento(std::string& nombre, std::string& tipo, std::string& descripcion, int precio, std::string& fechaInicio, std::string& fechaFin, int duracion); 
 
 void preinscribirSinTarifa(Usuario usuario, Evento& evento);
 void cancelarPreinscripcion();
@@ -45,5 +46,17 @@ bool verificarDetallesPago(const std::string& numeroTarjeta);
 
 // Función para preinscribirse en un evento
 void preinscribirEvento(Usuario usuario, Evento& evento);
+
+void eliminarEvento();
+
+void listarEvento();
+
+int comprobarCorreo(std::string& correo);
+
+void menu();
+void inicioAdministrador(); 
+void menuAdministrador(); 
+void inicioUsuario(); 
+void menuUsuario(); 
 
 #endif

@@ -1,15 +1,23 @@
 #include "../funciones.h"  
 
-void registrarUsuario(const std::string& usuario, const std::string& contrasena) {
-    std::ofstream archivo("registro.txt", std::ios::app);  
-
-    if (!archivo.is_open()) {
-        std::cerr << "Error al abrir el archivo de registro." << std::endl;
-        return;
+bool registrarUsuario(std::string& usuario, std::string& contrasena) {
+    if (validarUsuario(usuario, contrasena)) {
+        std::cout << "Este usuario ya existe." << std::endl; 
+        return false;
     }
+    else {
+        std::ofstream archivo("registro.txt", std::ios::app);  
 
-    // Escribe el nuevo usuario y contraseña en el archivo
-    archivo << usuario << " " << contrasena << "\n";
+        if (!archivo.is_open()) {
+            std::cerr << "Error al abrir el archivo de registro." << std::endl;
+            return false;
+        }
 
-    archivo.close();
+        // Escribe el nuevo usuario y contraseña en el archivo
+        archivo << usuario << " " << contrasena << "\n";
+        std::cout << "Registro exitoso." << std::endl; 
+
+        archivo.close();
+        return true;
+    }
 }
