@@ -156,10 +156,30 @@ void menuUsuario() {
                 listarEvento();
                 break;
             
-            case 2: 
-                preinscribirEvento();
-                break; 
+            case 2:  {
+                std::string usuario, nombreEvento;
 
+                while(true) {
+                    std::cout << "Introduce tu usuario. " << std::endl; 
+                    std::cin >> usuario; 
+                    if(validarNombreUsuario(usuario)) {
+
+                        while(true) {
+                            std::cout << "Introduce nombre del evento. " << std::endl; 
+                            std::cin >> nombreEvento; 
+                            if(comprobarEvento(nombreEvento)) {
+                                preinscribirEvento(usuario, nombreEvento);
+                            }
+                            else 
+                                std::cout << "Nombre de evento no encontrado. Intentalo otra vez." << std::endl;
+                        }
+                    }
+                    
+                    else 
+                        std::cout << "Nombre de usuario no encontrado. Intentalo otra vez." << std::endl;
+                }
+                break; 
+            }
             case 3: 
                 return;  //vuelve a la función que le llamó
                 

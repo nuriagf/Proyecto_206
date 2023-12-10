@@ -2,7 +2,7 @@ Nombre: Hola estoy probando
 Tipo: congreso
 Descripcion: esto es una prueba  
 Precio: 0
-Aforo: 20
+Aforo: 2
 Fecha inicio: 2023-12-08
 Fecha fin: 2023-12-30
 Duracion: 45
@@ -11,7 +11,7 @@ Nombre: Quimica avanzada
 Tipo: ponencia
 Descripcion: Esto es una ponencia de quimica avanzada 
 Precio: 20
-Aforo: 35
+Aforo: 1
 Fecha inicio: 2024-01-10
 Fecha fin: 2024-02-03
 Duracion: 30

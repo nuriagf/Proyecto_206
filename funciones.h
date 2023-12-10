@@ -9,20 +9,7 @@
 #include <iomanip> 
 #include <vector>
 
-struct Evento
-{
-    std::string nombreEvento;
-    bool tieneTarifa;
-    int aforo;
-    std::vector<std::string> usuariosPreinscritos;
-};
-
-struct Usuario
-{
-    std::string nombreUsuario;
-    bool haIniciadoSesion;
-};
-
+bool validarNombreUsuario(std::string& usuario);
 bool validarUsuario(std::string& usuario, std::string& contrasena);
 bool inicioSesion(std::string& usuario, std::string& contrasena);
 bool comprobarUsuario(std:: string& usuario);
@@ -38,14 +25,17 @@ bool comprobarFechas (std::string& fechaInicio, std::string& fechaFin);
 void introducirFechas(std::string& fechaInicio, std::string& fechaFin);
 bool guardarEvento(std::string& nombre, std::string& tipo, std::string& descripcion, int precio, int aforo, std::string& fechaInicio, std::string& fechaFin, int duracion); 
 
-void preinscribirSinTarifa(Usuario usuario, Evento& evento);
-void cancelarPreinscripcion();
-void manejarErrorPago();
-void sinAforoDisponible();
-bool verificarDetallesPago(std::string& numeroTarjeta);
+void preinscribirEvento(std::string& usuario, std::string& nombreEvento);
+int obtenerPrecio(std::string& nombreEvento);
+int obtenerAforo(std::string& nombreEvento);
+int contarAforoInscritos (std::string &nombreEvento);
+bool inscripcionSinTarifa(std::string& usuario, std::string& nombreEvento, int aforo);
+bool inscripcionConTarifa(std::string& usuario, std::string& nombreEvento, int precio, int aforo);
 
-// Función para preinscribirse en un evento
-void preinscribirEvento(Usuario usuario, Evento& evento);
+bool insertarCuentaBancaria(std::string usuario);
+bool buscarCuenta(std::string& usuario);
+int obtenerSaldo(std::string& usuario);
+void cobrarEvento(std::string& usuario, int precio);
 
 void eliminarEvento();
 

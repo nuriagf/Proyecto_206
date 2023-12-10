@@ -1,5 +1,25 @@
 #include "../funciones.h"
 
+bool validarNombreUsuario(std::string& usuario) {
+    std::ifstream archivo("registro.txt");
+
+    if (!archivo.is_open()) {
+        std::cerr << "Error al abrir el archivo de registro." << std::endl;
+        return false;
+    }
+
+    std::string usuarioGuardado;
+
+    while (archivo >> usuarioGuardado) {
+        if (usuario == usuarioGuardado) {
+            archivo.close();
+            return true; // Usuario y contraseña coinciden
+        }
+    }
+
+    archivo.close();
+    return false; // Usuario o contraseña incorrectos
+}
 
 bool validarUsuario(std::string& usuario, std::string& contrasena) {
     std::ifstream archivo("registro.txt");
