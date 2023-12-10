@@ -2,10 +2,7 @@
 
 int main(){
 
-    //menu();
-    std::string nombre="Quimica avanzada";
-    std::string usuario="i12lanob";
-    
-    preinscribirEvento(usuario, nombre);
+    menu();
+
     return 0;
 }

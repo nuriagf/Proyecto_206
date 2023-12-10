@@ -1,5 +1,6 @@
 #include "../funciones.h"
 
+//comrpobamos que el usurio exista en el fichero
 bool validarNombreUsuario(std::string& usuario) {
     std::ifstream archivo("registro.txt");
 
@@ -17,10 +18,12 @@ bool validarNombreUsuario(std::string& usuario) {
         }
     }
 
+    std::cout << "Nombre de usuario no encontrado. Intentalo otra vez." << std::endl;
     archivo.close();
     return false; // Usuario o contraseña incorrectos
 }
 
+//comprobamos que los datos existan en el fichero
 bool validarUsuario(std::string& usuario, std::string& contrasena) {
     std::ifstream archivo("registro.txt");
 
@@ -43,6 +46,7 @@ bool validarUsuario(std::string& usuario, std::string& contrasena) {
     return false; // Usuario o contraseña incorrectos
 }
 
+//comprobamos si el usuario es un administrador o usuario, en caso de no ser ni uno ni otro no es válido el usuario introducido
 bool comprobarUsuario(std::string& usuario){
     bool correcto=true;
     if (usuario.length() != 8) {
@@ -58,6 +62,7 @@ bool comprobarUsuario(std::string& usuario){
     return correcto;
 }
 
+//despues de validar si el usuairo y la contraseña son correctos se inicia sesión
 bool inicioSesion(std::string& usuario, std::string& contrasena) {
 
     bool correcto;

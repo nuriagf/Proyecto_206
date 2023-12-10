@@ -1,5 +1,6 @@
 #include "../funciones.h"
 
+//lee el fichero de eventos y los imprime por pantalla
 void listarEvento() {
     std::ifstream archivo("eventos.txt");
 

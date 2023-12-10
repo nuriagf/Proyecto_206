@@ -1,19 +1,20 @@
 #include "../funciones.h"
 
+//esta funcion nos permite crear un evento
 void crearEvento() {
     std:: string nombre, tipo, descripcion, fechaInicio, fechaFin; 
     int precio, aforo, duracion; 
 
-    introducirNombre(nombre);
+    introducirNombre(nombre); //como eran funciones muy largas se ha creado una función especifica para el nombre
     
-    introducirTipoEvento(tipo);
+    introducirTipoEvento(tipo); //función que además de dar valor al tipo de evento también comprueba si el tipo es correcto
     //prueba de que solo se ponga taller congreso ponencia y seminario
 
     std::cout << "Introduzce una descripcion del evento (pulsa -enter- en una linea vacia para fianlizar)." << std::endl; 
 
     std::cin.ignore();//limpiar buffer
 
-    while (true) {
+    while (true) { //al igual que con el nombre la descripcion tiene espacios
         std::string linea;
         std::getline(std::cin, linea); 
                 
@@ -23,14 +24,15 @@ void crearEvento() {
 
         descripcion += linea + " "; 
     }
-    //prueba de que fecha de inicio no puede ser después de fecha final 
+ 
     std::cout << "Introduzca precio del evento." << std::endl; 
     std::cin >> precio;
 
-    std::cout << "Introduzca precio del evento." << std::endl; 
+    std::cout << "Introduzca aforo del evento." << std::endl; 
     std::cin >> aforo;
 
-    introducirFechas(fechaInicio, fechaFin);
+    //prueba de que fecha de inicio no puede ser después de fecha final
+    introducirFechas(fechaInicio, fechaFin); 
 
     std::cout << "Introduzca duracion del evento(en minutos)." << std::endl; 
     std::cin >> duracion;
@@ -40,12 +42,12 @@ void crearEvento() {
     
 }
 
-void introducirNombre(std::string &nombre) {
+//sirve para que el usuario pueda nombrar a la actividad
+void introducirNombre(std::string& nombre) {
 
     while(true) {
         std::cout << "Introduzca el nombre del evento (pulsa -enter- en una linea vacia para fianlizar)." << std::endl; 
-        std::cin >> nombre;
-
+        //como las actividades pueden tener espacios con este método se recogerá toda la cadena de nombre
         while (true) {
             std::string linea;
             std::getline(std::cin, linea); 
@@ -54,18 +56,19 @@ void introducirNombre(std::string &nombre) {
                 break;
             }
 
-            nombre += linea + " "; 
+            nombre += linea + " "; //se unen lo que ya hay de nombre más lo que se va leyendo (linea) y se le añaden espacios
         }
 
-        if(comprobarEvento(nombre)) {
+        if(comprobarEvento(nombre)) { //una vez añadido el nombre se comprueba si no existe ya
             std::cout << "El nombre del evento ya existe. Introduce otro." << std::endl; 
         }
-        else {
+        else { //si todo está bien se sale
             break;
         }
     }
 }
 
+//función que comprueba en el fichero si existe un evento con ese nombre
 bool comprobarEvento(std::string& nombre) {
     std::ifstream archivo("eventos.txt");
 
@@ -77,14 +80,15 @@ bool comprobarEvento(std::string& nombre) {
     std::string linea; 
     
     while (getline(archivo, linea)) {
-        if (linea.find("Nombre: " + nombre) == 0) {
+        if (linea.find("Nombre: " + nombre) == 0) { //si es 0 es que lo hemos encontrado, por lo que se devuelve true
             archivo.close();
             return true; // Evento encontrado 
         }
     }
 
+    std::cout << "Evento no encontrado." << std::endl; 
     archivo.close();
-    return false; 
+    return false; //si no se ha encontrado
 }
 
 void introducirTipoEvento(std::string& tipo) {
@@ -93,22 +97,24 @@ void introducirTipoEvento(std::string& tipo) {
         std::cin >> tipo;
 
         if (comprobarTipoEvento(tipo)) { //si el tipo de evento no es ninguno de los cuatro lo vuelve a pedir
-            break;
+            break; //si el tipo de evento es correcto se sale
         }
         else {
-            std::cout << "No es congreso, ni ponencia, ni taller, ni seminario. Intentalo de nuevo." << std::endl;
+            std::cout << "No es congreso, ni ponencia, ni taller, ni seminario. Intentalo de nuevo." << std::endl; //si no es correcto se vuelve a pedir
         }
     }
 }
 
+//se comprueba si es taller, seminario, congreso o ponencia
 bool comprobarTipoEvento(std::string& tipo) {
     for (int i=0; i<tipo.length(); i++) {
-        tipo[i] = tolower(tipo[i]);
+        tipo[i] = tolower(tipo[i]); //da igual el tamaño en el que lo escriban, lo pasaremos a minuscula para comparar
     }
 
-    return (tipo=="taller" || tipo=="seminario" || tipo=="congreso" || tipo=="ponencia");
+    return (tipo=="taller" || tipo=="seminario" || tipo=="congreso" || tipo=="ponencia"); //devolver "true" si está correcto
 }
 
+//asignar los valores a las fechas
 void introducirFechas(std::string& fechaInicio, std::string& fechaFin) {
     while(true) {
         std::cout << "Introduzca fecha de inicio (AAAA-MM-DD)." << std::endl; 
@@ -126,6 +132,7 @@ void introducirFechas(std::string& fechaInicio, std::string& fechaFin) {
     }
 }
 
+//comprobar que la fecha de inicio sea antes que la fecha de fin
 bool comprobarFechas (std::string& fechaInicio, std::string& fechaFin) {
     std::tm tmInicio = {}; 
     std::tm tmFin = {}; 
@@ -146,6 +153,7 @@ bool comprobarFechas (std::string& fechaInicio, std::string& fechaFin) {
     }
 }
 
+//por ultimo se guarda todo en el fichero
 bool guardarEvento(std::string& nombre, std::string& tipo, std::string& descripcion, int precio, int aforo, std::string& fechaInicio, std::string& fechaFin, int duracion) {
     std::ofstream archivo("eventos.txt", std::ios::app); //añadir al final del fichero 
 

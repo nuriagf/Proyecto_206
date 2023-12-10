@@ -1,5 +1,6 @@
 #include "../funciones.h"
 
+//hemos creado un fichero para el tema de pagos de las actividades que lo necesiten
 bool insertarCuentaBancaria(std::string usuario) {
     
     if(buscarCuenta(usuario) == false) {
@@ -14,9 +15,10 @@ bool insertarCuentaBancaria(std::string usuario) {
 
         std::cout << std::endl; 
         std::cout << "Vamos a crear una cuenta bancaria. " << std::endl; 
-        std::cout << "Introduce tu saldo. " << std::endl; 
+        std::cout << "Introduce tu saldo. " << std::endl; //se le pide el saldo que tendrá la cuenta
         std::cin >> saldo; 
 
+        //se guardan los datos en el fichero
         archivo << "Usuario: " << usuario << std::endl; 
         archivo << "Saldo: " << saldo << std::endl; 
         archivo << std::endl; 
@@ -27,6 +29,7 @@ bool insertarCuentaBancaria(std::string usuario) {
     }
 }
 
+//antes de crear una cuenta se comprueba si no existe ya una antes 
 bool buscarCuenta(std::string& usuario) {
     std::ifstream archivo("listaCuentasBancarias.txt");  
 
@@ -37,7 +40,7 @@ bool buscarCuenta(std::string& usuario) {
 
     std::string linea; 
     while (getline(archivo, linea)) {
-        if (linea.find("Usuario: " + usuario) == 0) {
+        if (linea.find("Usuario: " + usuario) == 0) { 
             std::cout << "Cuenta bancaria encontrada. " << std::endl; 
             archivo.close();
             return true;
@@ -46,6 +49,7 @@ bool buscarCuenta(std::string& usuario) {
 
 }
 
+//queremos obtener el saldo de la cuenta para luego comprobar si tiene suficiente para pagar el evento
 int obtenerSaldo(std::string& usuario) {
     std::ifstream archivo("listaCuentasBancarias.txt");
 
@@ -74,34 +78,28 @@ int obtenerSaldo(std::string& usuario) {
     }
 }
 
-void cobrarEvento(std::string& usuario, int precio) {
+NO FUNCIONA
+//pago del evento
+void cobrarEvento(std::string& usuario, int saldo, int precio) {
     std::ifstream archivo("listaCuentasBancarias.txt");
     std::ofstream aux("auxiliar.txt", std::ios::app); //añadir al final del fichero 
 
-    if (!archivo.is_open()) {
+    if (!archivo.is_open() || !aux.is_open() ) {
         std::cerr << "Error al abrir el archivo auxiliar." << std::endl;
-        exit(0);
+        exit(0); No sé si funcionaría //es void y lo he puesto como exit
     }
 
-    if (!aux.is_open()) {
-        std::cerr << "Error al abrir el archivo de cuentas bancarias." << std::endl;
-        exit(0);
-    }
-
-    int saldo;
     std::string linea;
     while (getline(archivo, linea)) {
         if (linea.find("Usuario: " + usuario) != std::string::npos) {
             aux << linea << std::endl; 
             while (getline(archivo, linea)) {
-                if (linea.find("Saldo: ") != std::string::npos) { //distinto de invalido o no encontrado
-                    std::stringstream stream(linea);
-                    std::string etiqueta;
-
-                    // Ignorar la etiqueta y obtener el saldo
-                    stream >> etiqueta >> saldo;
-                    saldo=saldo-precio; 
-                    aux << "Saldo: " << saldo << std::endl; 
+                if (linea.find("Saldo: ") + saldo ) { //lee hasta encontrar el saldo
+                    saldo=saldo-precio; //se le resta el precio
+                    aux << "Saldo: " << saldo << std::endl; //se guarda en el nuevo fichero
+                }
+                else {
+                    aux << linea << std::endl; 
                 }
             }
         }
@@ -110,8 +108,10 @@ void cobrarEvento(std::string& usuario, int precio) {
         }
     }
 
+    std::cout << "El evento ha sido pagado. " << std::endl; 
+    
     archivo.close();
     aux.close();
-    std::remove("listaCuentasBancarias.txt");
-    std::rename("auxiliar.txt", "listaCuentasBancarias.txt");
+    std::remove("listaCuentasBancarias.txt"); //se elimina viejo fichero
+    std::rename("auxiliar.txt", "listaCuentasBancarias.txt"); //se renombra nuevo fichero
 }
