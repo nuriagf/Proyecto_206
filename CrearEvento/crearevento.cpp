@@ -85,8 +85,7 @@ bool comprobarEvento(std::string& nombre) {
             return true; // Evento encontrado 
         }
     }
-
-    std::cout << "Evento no encontrado." << std::endl; 
+    
     archivo.close();
     return false; //si no se ha encontrado
 }

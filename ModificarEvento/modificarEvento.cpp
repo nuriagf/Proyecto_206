@@ -1,6 +1,6 @@
 #include "../funciones.h"
 
-NO FUNCIONA AÚN
+//NO FUNCIONA AÚN
 void modificarEvento(std::string& nombre) {
     std::ifstream archivo("eventos.txt");
     std::ofstream aux("auxiliar.txt");

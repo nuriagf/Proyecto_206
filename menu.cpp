@@ -1,6 +1,6 @@
 #include "funciones.h"
 
-Hacer que no hagan break, sino que vuelvan al menú principal (aún hay que cambiar algunos)
+//Hacer que no hagan break, sino que vuelvan al menú principal (aún hay que cambiar algunos)
 
 //menu principal 
 void menu() {
@@ -57,7 +57,7 @@ void inicioAdministrador() {
             std::cin >> contrasena1;
             if(inicioSesion(usuario1, contrasena1)){
                 menuAdministrador(); //se le manda al menú admistrador
-                menu(); A veces no funciona//cuando salga del menú adeministrador lleva al menú principañ
+                menu(); //A veces no funciona//cuando salga del menú adeministrador lleva al menú principañ
             }
         }
     }
@@ -71,9 +71,9 @@ void menuAdministrador() {
         std::cout << "Escoge una opcion: " << std::endl; 
         std::cout << "1- Listar eventos." << std::endl; 
         std::cout << "2- Crear evento. " << std::endl; 
-        std::cout << "3- Eliminar evento. " << std::endl; HAY QUE MIRAR PARA QUE LAS OPCIONES DE ELIMINAR Y MODIFCAR DESPUÉS DE TERMINAR VUELVAN AL MENÚ ADMINISTRADOR
+        std::cout << "3- Eliminar evento. " << std::endl; //HAY QUE MIRAR PARA QUE LAS OPCIONES DE ELIMINAR Y MODIFCAR DESPUÉS DE TERMINAR VUELVAN AL MENÚ ADMINISTRADOR
         std::cout << "4- Modificar evento. " << std::endl; 
-        std::cout << "5- Salir." << std::endl; COMPROBAR QUE FUNCIONA EL SALIRSE
+        std::cout << "5- Salir." << std::endl; //COMPROBAR QUE FUNCIONA EL SALIRSE
         std::cin >> op; 
 
         switch (op) {
@@ -123,7 +123,7 @@ void menuAdministrador() {
 
                         nombre += linea + " "; 
                     }
-                    if(comprobarEvento(nombre) == true) { NO SE POR QUÉ PERO NO BUSCA BIEN EL EVENTO Y ESTA FUNCIÓN SE SUPONE QUE FUNCIONA, CREO QUE ES EL FICHERO
+                    if(comprobarEvento(nombre) == true) { //NO SE POR QUÉ PERO NO BUSCA BIEN EL EVENTO Y ESTA FUNCIÓN SE SUPONE QUE FUNCIONA, CREO QUE ES EL FICHERO
                         modificarEvento(nombre);
                     }
                     else {
@@ -202,7 +202,7 @@ void menuUsuario() {
         std::cout << "Escoge una opcion: " << std::endl; 
         std::cout << "1- Listar eventos." << std::endl; 
         std::cout << "2- Inscribirse a evento. " << std::endl; 
-        std::cout << "3- Salir. " << std::endl; COMPROBAR QUE FUNCIONA
+        std::cout << "3- Salir. " << std::endl; //COMPROBAR QUE FUNCIONA
         std::cin >> op; 
 
         switch (op) {
@@ -232,7 +232,7 @@ void menuUsuario() {
                                 nombreEvento += linea + " "; 
                             } 
 
-                            if(comprobarEvento(nombreEvento)) { Parece que no sale de este bucle ni aunque le des a salir// comprueba que el evento existe
+                            if(comprobarEvento(nombreEvento)) { //Parece que no sale de este bucle ni aunque le des a salir// comprueba que el evento existe
                                 preinscribirEvento(usuario, nombreEvento);
                                 menuUsuario(); 
                             }

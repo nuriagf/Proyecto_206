@@ -1,5 +1,0 @@
-Usuario: i12almuf
-Saldo: 34
-
-Usuario: i12lanob
-Saldo: 200
