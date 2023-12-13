@@ -41,7 +41,7 @@ void eliminarEvento(std::string& nombre);
 
 //Modificar evento
 bool modificarEvento(std::string& nombre);
-bool guardarNuevosDatos(std::vector<std::string> vector, std::string& nombre, std::string& tipo, std::string& descripcion, int precio, int aforo, std::string& fechaInicio, std::string& fechaFin, int duracion);
+bool guardarNuevosDatos(std::vector<std::string> vector, std::string& nombre, std::string& nuevoNombre, std::string& tipo, std::string& descripcion, int precio, int aforo, std::string& fechaInicio, std::string& fechaFin, int duracion);
 
 //Listar evento
 void listarEvento();

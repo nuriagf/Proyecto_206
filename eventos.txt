@@ -7,14 +7,14 @@ Fecha inicio: 2023-12-08
 Fecha fin: 2024-01-23
 Duracion: 30
 
-Nombre: Quimica avanzada 
+Nombre: Quimica avanzada
 Tipo: taller
-Descripcion: Esto es un taller de quimica avanzada 
-Precio: 20
-Aforo: 2
-Fecha inicio: 2023-12-07
-Fecha fin: 2023-12-09
-Duracion: 45
+Descripcion: Taller de quimica avanzada
+Precio: 0
+Aforo: 5
+Fecha inicio: 2023-12-10
+Fecha fin: 2023-12-12
+Duracion: 20
 
 Nombre: Informatica
 Tipo: seminario
