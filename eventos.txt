@@ -24,4 +24,3 @@ Tipo: Congreso
 Descripcion: jnf ndjksn 
 Fecha inicio: 2023-12-05
 Fecha fin: 2023-12-03
-Duracion: 123
