@@ -8,6 +8,7 @@
 #include <sstream>
 #include <iomanip> 
 #include <vector>
+#include <algorithm>
 
 //Inicio de sesion
 bool validarNombreUsuario(std::string& usuario);
@@ -39,7 +40,8 @@ bool inscripcion(std::string& usuario, std::string& nombreEvento, int aforo);
 void eliminarEvento(std::string& nombre);
 
 //Modificar evento
-void modificarEvento(std::string& nombre);
+bool modificarEvento(std::string& nombre);
+bool guardarNuevosDatos(std::vector<std::string> vector, std::string& nombre, std::string& tipo, std::string& descripcion, int precio, int aforo, std::string& fechaInicio, std::string& fechaFin, int duracion);
 
 //Listar evento
 void listarEvento();

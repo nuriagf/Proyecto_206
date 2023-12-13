@@ -1,11 +1,11 @@
 Nombre: Hola estoy probando  
 Tipo: congreso
-Descripcion: esto es una prueba  
-Precio: 0
-Aforo: 4
+Descripcion: Esto es para ver los cambios 
+Precio: 20
+Aforo: 20
 Fecha inicio: 2023-12-08
-Fecha fin: 2023-12-30
-Duracion: 45
+Fecha fin: 2024-01-23
+Duracion: 30
 
 Nombre: Quimica avanzada 
 Tipo: taller
@@ -14,5 +14,13 @@ Precio: 20
 Aforo: 2
 Fecha inicio: 2023-12-07
 Fecha fin: 2023-12-09
-Duracion: 46
+Duracion: 45
 
+Nombre: Informatica
+Tipo: seminario
+Descripcion: Esto es un seminario de informatica
+Precio: 12
+Aforo: 100
+Fecha inicio: 2023-12-05
+Fecha fin: 2023-12-23
+Duracion: 90

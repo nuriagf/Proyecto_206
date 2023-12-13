@@ -113,6 +113,7 @@ void menuAdministrador() {
                 std::string nombre; 
                 while (true) {
                     std::cout << "Introduce el nombre del evento a eliminar. " << std::endl; 
+                    std::cin.ignore();
                     while (true) {
                         std::string linea;
                         std::getline(std::cin, linea); 

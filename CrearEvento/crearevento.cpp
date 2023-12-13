@@ -48,6 +48,7 @@ void introducirNombre(std::string& nombre) {
     while(true) {
         std::cout << "Introduzca el nombre del evento (pulsa -enter- en una linea vacia para fianlizar)." << std::endl; 
         //como las actividades pueden tener espacios con este método se recogerá toda la cadena de nombre
+        std::cin.ignore();
         while (true) {
             std::string linea;
             std::getline(std::cin, linea); 
@@ -71,6 +72,7 @@ void introducirNombre(std::string& nombre) {
 //función que comprueba en el fichero si existe un evento con ese nombre
 bool comprobarEvento(std::string& nombre) {
     std::ifstream archivo("eventos.txt");
+    archivo.seekg(0);
 
     if (!archivo.is_open()) {
         std::cerr << "Error al abrir el archivo de eventos." << std::endl;
