@@ -17,6 +17,7 @@ bool modificarEvento(std::string& nombre) {
     std:: string nuevoNombre, tipo, descripcion, fechaInicio, fechaFin; 
     int precio, aforo, duracion; 
 
+    std::cout << "Se va a proceder a la modificacion del evento: " << nombre << std::endl; 
     introducirNombre(nuevoNombre);
     introducirTipoEvento(tipo);
 
@@ -75,6 +76,8 @@ bool guardarNuevosDatos(std::vector<std::string> vector, std::string& nombre, st
         aux << lineaAux << std::endl; 
     }
 
+    std::cout << "Modificacion finalizada " << std::endl; 
+    
     aux.close();
     std::rename("auxiliar.txt", "eventos.txt");
     return true;

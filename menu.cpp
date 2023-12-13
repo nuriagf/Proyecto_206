@@ -102,6 +102,7 @@ void menuAdministrador() {
 
                     if(comprobarEvento(nombre) == true) {
                         eliminarEvento(nombre);
+                        break;
                     }
                     else {
                         std::cout << "Nombre no encontrado. Intentalo otra vez. " << std::endl;
@@ -112,7 +113,7 @@ void menuAdministrador() {
             case 4: {
                 std::string nombre; 
                 while (true) {
-                    std::cout << "Introduce el nombre del evento a eliminar. " << std::endl; 
+                    std::cout << "Introduce el nombre del evento a modificar. " << std::endl; 
                     std::cin.ignore();
                     while (true) {
                         std::string linea;
@@ -126,6 +127,7 @@ void menuAdministrador() {
                     }
                     if(comprobarEvento(nombre) == true) { //NO SE POR QUÉ PERO NO BUSCA BIEN EL EVENTO Y ESTA FUNCIÓN SE SUPONE QUE FUNCIONA, CREO QUE ES EL FICHERO
                         modificarEvento(nombre);
+                        break;
                     }
                     else {
                         std::cout << "Nombre no encontrado. Intentalo otra vez. " << std::endl;
@@ -235,7 +237,10 @@ void menuUsuario() {
 
                             if(comprobarEvento(nombreEvento)) { //Parece que no sale de este bucle ni aunque le des a salir// comprueba que el evento existe
                                 preinscribirEvento(usuario, nombreEvento);
-                                menuUsuario(); 
+                                break; 
+                            }
+                            else {
+                                std::cout << "No se encuentra el evento" << std::endl; 
                             }
                         }
                     }
