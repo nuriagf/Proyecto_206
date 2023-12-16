@@ -14,3 +14,4 @@ Aforo: 100
 Fecha inicio: 2023-12-05
 Fecha fin: 2023-12-23
 Duracion: 90
+
