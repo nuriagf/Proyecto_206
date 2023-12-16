@@ -5,13 +5,17 @@ int comprobarCorreo(std::string& correo){
     if (correo.length() != 15) { //si no tiene el correo una longitud de 15 es que está mal 
         return 0;
     }
-    char tipoUsuario = correo[2];
-    if (tipoUsuario == '1') {
-        return 1; //1 es administrador
+
+    if (correo[8] == '@' && correo[9] == 'u' && correo[10] == 'c' && correo[11] == 'o' && correo[12] == '.' && correo[13] == 'e' && correo[14] == 's') {
+        char tipoUsuario = correo[2];
+        if (tipoUsuario == '1') {
+            return 1; //1 es administrador
+        }
+        if(tipoUsuario == '2') {
+            return 2; //2 es usuario
+        }
     }
-    if(tipoUsuario == '2') {
-        return 2; //2 es usuario
-    }
+
     return 0; 
 }
 

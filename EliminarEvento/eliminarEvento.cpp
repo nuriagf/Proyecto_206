@@ -14,7 +14,7 @@ void eliminarEvento(std::string& nombre) {
     while (getline(archivo, linea)) {
         if (linea.find("Nombre: " + nombre) != std::string::npos) { //busca hasta encontrar el nombre
             // Saltar las líneas del evento que queremos borrar
-            for (int i = 0; i < 7; ++i) { 
+            for (int i = 0; i < 8; ++i) { 
                 getline(archivo, linea);
             }
         }

@@ -31,7 +31,7 @@ bool guardarEvento(std::string& nombre, std::string& tipo, std::string& descripc
 
 //Inscribirse
 void preinscribirEvento(std::string& usuario, std::string& nombreEvento);
-int obtenerPrecio(std::string& nombreEvento);
+bool comprobarInscripcion(std::string& usuario, std::string& nombreEvento);
 int obtenerAforo(std::string& nombreEvento);
 int contarAforoInscritos (std::string &nombreEvento);
 bool inscripcion(std::string& usuario, std::string& nombreEvento, int aforo);

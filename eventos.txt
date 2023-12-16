@@ -1,16 +1,9 @@
-Nombre: rueba  
-Tipo: taller
-Descripcion: prueba  
-Precio: 12
-Aforo: 32
-Fecha inicio: 2024-01-03
-Fecha fin: 2024-03-19
-Duracion: 23
-Nombre: rueba  
-Tipo: taller
-Descripcion: prueba  
-Precio: 12
-Aforo: 32
-Fecha inicio: 2024-01-03
-Fecha fin: 2024-03-19
-Duracion: 23
+Nombre: Informatica
+Tipo: seminario
+Descripcion: Esto es un seminario de quimica avanzada 
+Precio: 0
+Aforo: 100
+Fecha inicio: 2024-01-10
+Fecha fin: 2024-01-29
+Duracion: 45
+

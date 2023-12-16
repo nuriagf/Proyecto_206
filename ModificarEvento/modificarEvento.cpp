@@ -23,7 +23,7 @@ bool modificarEvento(std::string& nombre) {
 
     std::cout << "Introduzce una descripcion del evento (pulsa -enter- en una linea vacia para fianlizar)." << std::endl; 
     std::cin.ignore();//limpiar buffer
-    while (true) { //al igual que con el nombre la descripcion tiene espacios
+    while (true) { //la descripcion tiene espacios
         std::string linea;
         std::getline(std::cin, linea); 
                 
@@ -46,16 +46,15 @@ bool modificarEvento(std::string& nombre) {
     std::cin >> duracion;
 
     archivo.close();
-    std::remove("eventos.txt");
 
     guardarNuevosDatos(vector, nombre, nuevoNombre, tipo, descripcion, precio, aforo, fechaInicio, fechaFin, duracion);
 }
 
 bool guardarNuevosDatos(std::vector<std::string> vector, std::string& nombre, std::string& nuevoNombre, std::string& tipo, std::string& descripcion, int precio, int aforo, std::string& fechaInicio, std::string& fechaFin, int duracion) {
-    std::ofstream aux("auxiliar.txt");
+    std::ofstream archivo("eventos.txt");
 
-    if (!aux.is_open()) {
-        std::cerr << "Error al abrir el fichero auxiliar." << std::endl;
+    if (!archivo.is_open()) {
+        std::cerr << "Error al abrir el fichero de eventos." << std::endl;
         return false;
     }
 
@@ -73,12 +72,11 @@ bool guardarNuevosDatos(std::vector<std::string> vector, std::string& nombre, st
     }
 
     for (const auto& lineaAux : vector) {
-        aux << lineaAux << std::endl; 
+        archivo << lineaAux << std::endl; 
     }
 
     std::cout << "Modificacion finalizada " << std::endl; 
     
-    aux.close();
-    std::rename("auxiliar.txt", "eventos.txt");
+    archivo.close();
     return true;
 }

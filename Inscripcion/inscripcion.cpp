@@ -3,19 +3,23 @@
 //dentro de inscribirse a un evento están los eventos que cuestan algo y los que no
 void preinscribirEvento(std::string& usuario, std::string& nombreEvento) {
 
-    //Puedo comprobar si el usuario ya se ha inscrito de antes o no
     int aforo=obtenerAforo(nombreEvento); //obtenemos el aforo
     
     inscripcion(usuario, nombreEvento, aforo);
 }
 
-//si es sin precio se guardan los datos directamente en el fichero
+//funcion de inscripcion
 bool inscripcion(std::string& usuario, std::string &nombreEvento, int aforo) {
     std::ofstream archivo("inscripciones.txt", std::ios::app);  
 
     if (!archivo.is_open()) {
         std::cerr << "Error al abrir el archivo de registro." << std::endl;
         return false;
+    }
+
+    if(comprobarInscripcion(usuario, nombreEvento)) {
+        std::cout << "La persona ya esta inscrita" << std::endl; 
+        return false; 
     }
 
     int contador = contarAforoInscritos(nombreEvento); //contamos los eventos del fichero, para saber si nos pasamos de aforo
@@ -31,6 +35,29 @@ bool inscripcion(std::string& usuario, std::string &nombreEvento, int aforo) {
     }
 
     archivo.close();
+}
+
+//comprobamos que el usuario no se haya inscrito ya en el evento
+bool comprobarInscripcion(std::string& usuario, std::string& nombreEvento) {
+    std::ifstream archivo("inscripciones.txt");  
+
+    if (!archivo.is_open()) {
+        std::cerr << "Error al abrir el archivo de registro." << std::endl;
+        return false;
+    }
+
+    std::string linea; 
+    std::string inscrip = usuario + "-->" + nombreEvento;
+
+    while (std::getline(archivo, linea)) {
+        if (linea == inscrip) {
+            archivo.close();
+            return true; // Evento encontrado
+        }
+    }
+
+    archivo.close();
+    return false; 
 }
 
 //obtemos el aforo del evento

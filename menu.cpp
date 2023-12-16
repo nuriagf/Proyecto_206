@@ -1,7 +1,5 @@
 #include "funciones.h"
 
-//Hacer que no hagan break, sino que vuelvan al menú principal (aún hay que cambiar algunos)
-
 //menu principal 
 void menu() {
     int op; 
@@ -13,6 +11,8 @@ void menu() {
 
     switch (op) {
         case 1:
+            std::cout << "Esta opcion solo muestra los eventos disponibles. " << std::endl; 
+            std::cout << std::endl; 
             listarEvento();
             menu();
         
@@ -30,6 +30,9 @@ void menu() {
                     inicioUsuario();
                     menu();
                 }
+                else {
+                    std::cout << "Correo no valido." << std::endl; 
+                }
             }
             break; 
         }
@@ -40,6 +43,7 @@ void menu() {
 
         default: 
             std::cout << "Opcion no valida. " << std::endl; 
+            menu(); 
     }
 }
 
@@ -57,7 +61,7 @@ void inicioAdministrador() {
             std::cin >> contrasena1;
             if(inicioSesion(usuario1, contrasena1)){
                 menuAdministrador(); //se le manda al menú admistrador
-                menu(); //A veces no funciona//cuando salga del menú adeministrador lleva al menú principañ
+                menu(); 
             }
         }
     }
@@ -71,9 +75,9 @@ void menuAdministrador() {
         std::cout << "Escoge una opcion: " << std::endl; 
         std::cout << "1- Listar eventos." << std::endl; 
         std::cout << "2- Crear evento. " << std::endl; 
-        std::cout << "3- Eliminar evento. " << std::endl; //HAY QUE MIRAR PARA QUE LAS OPCIONES DE ELIMINAR Y MODIFCAR DESPUÉS DE TERMINAR VUELVAN AL MENÚ ADMINISTRADOR
+        std::cout << "3- Eliminar evento. " << std::endl; 
         std::cout << "4- Modificar evento. " << std::endl; 
-        std::cout << "5- Salir." << std::endl; //COMPROBAR QUE FUNCIONA EL SALIRSE
+        std::cout << "5- Cerrar sesion." << std::endl; 
         std::cin >> op; 
 
         switch (op) {
@@ -89,16 +93,7 @@ void menuAdministrador() {
                 std::string nombre; 
                 while (true) {
                     std::cout << "Introduce el nombre del evento a eliminar. " << std::endl; 
-                    while (true) {
-                        std::string linea;
-                        std::getline(std::cin, linea); 
-                            
-                        if (linea.empty()) { //cuando haya un enter en la linea vacia se saldrá 
-                            break;
-                        }
-
-                        nombre += linea + " "; 
-                    }
+                    std::cin >> nombre; 
 
                     if(comprobarEvento(nombre) == true) {
                         eliminarEvento(nombre);
@@ -114,18 +109,9 @@ void menuAdministrador() {
                 std::string nombre; 
                 while (true) {
                     std::cout << "Introduce el nombre del evento a modificar. " << std::endl; 
-                    std::cin.ignore();
-                    while (true) {
-                        std::string linea;
-                        std::getline(std::cin, linea); 
-                            
-                        if (linea.empty()) { //cuando haya un enter en la linea vacia se saldrá 
-                            break;
-                        }
+                    std::cin >> nombre; 
 
-                        nombre += linea + " "; 
-                    }
-                    if(comprobarEvento(nombre) == true) { //NO SE POR QUÉ PERO NO BUSCA BIEN EL EVENTO Y ESTA FUNCIÓN SE SUPONE QUE FUNCIONA, CREO QUE ES EL FICHERO
+                    if(comprobarEvento(nombre) == true) {
                         modificarEvento(nombre);
                         break;
                     }
@@ -137,11 +123,11 @@ void menuAdministrador() {
             }
 
             case 5: 
-                return;  //vuelve a la función que le llamó
+                menu(); 
 
             default: 
                 std::cout << "Opcion no valida. " << std::endl; 
-            //borrar Evento
+                menuAdministrador(); 
         }
     }
 }
@@ -153,7 +139,7 @@ void inicioUsuario() {
     std::cout << "Escoge una opcion: " << std::endl; 
     std::cout << "1- Iniciar sesion." << std::endl; 
     std::cout << "2- Registrarse. " << std::endl; 
-    std::cout << "3- Salir. " << std::endl;
+    std::cout << "3- Volver atras. " << std::endl;
     std::cin >> op; 
 
     std::string usuario1, contrasena1;
@@ -163,13 +149,16 @@ void inicioUsuario() {
             while (true){
                 std::cout << "Ingrese el nombre de usuario: ";
                 std::cin >> usuario1;
-                if(comprobarUsuario(usuario1)){
+                if(comprobarUsuario(usuario1) && usuario1[2] == '2'){
                     std::cout << "Ingrese la contrasena: ";
                     std::cin >> contrasena1;
                     if(inicioSesion(usuario1, contrasena1)){
                         menuUsuario();
                         menu();
                     }
+                }
+                else {
+                    std::cout << "Usuario no valido."  << std::endl;
                 }
             }
             break;
@@ -178,22 +167,24 @@ void inicioUsuario() {
             while (true){
                 std::cout << "Ingrese el nombre de usuario: ";
                 std::cin >> usuario1;
-                if(comprobarUsuario(usuario1)){
+                if(comprobarUsuario(usuario1) && usuario1[2] == '2') {
                     std::cout << "Ingrese la contrasena: ";
                     std::cin >> contrasena1;
                     if(registrarUsuario(usuario1, contrasena1)) {
-                        menuUsuario();
-                        menu();
+                        inicioUsuario();
                     }
+                }
+                else {
+                    std::cout << "Usuario no valido."  << std::endl;
                 }
             }
             break; 
 
         case 3: 
-            return; //vuelve a la función que le llamó
-        
+            menu();
         default: 
-                std::cout << "Opcion no valida. " << std::endl; 
+            std::cout << "Opcion no valida. " << std::endl; 
+            inicioUsuario();
     }
 }
 
@@ -205,7 +196,7 @@ void menuUsuario() {
         std::cout << "Escoge una opcion: " << std::endl; 
         std::cout << "1- Listar eventos." << std::endl; 
         std::cout << "2- Inscribirse a evento. " << std::endl; 
-        std::cout << "3- Salir. " << std::endl; //COMPROBAR QUE FUNCIONA
+        std::cout << "3- Cerrar sesion. " << std::endl; 
         std::cin >> op; 
 
         switch (op) {
@@ -219,23 +210,11 @@ void menuUsuario() {
                         std::cout << "Introduce tu usuario. " << std::endl; 
                         std::cin >> usuario; 
                         if(validarNombreUsuario(usuario)) { //comprueba que el usuario existe
-                            std::cout << "Introduce nombre del evento (pulsa -enter- en una linea vacia para fianlizar)." << std::endl; 
+                            std::cout << "Introduce nombre del evento." << std::endl; 
                             std::string nombreEvento; 
+                            std::cin >> nombreEvento; 
 
-                            std::cin.ignore();//limpiar buffer
-
-                            while (true) {
-                                std::string linea;
-                                std::getline(std::cin, linea); 
-                                        
-                                if (linea.empty()) { //cuando haya un enter en la linea vacia se saldrá 
-                                    break;
-                                }
-
-                                nombreEvento += linea + " "; 
-                            } 
-
-                            if(comprobarEvento(nombreEvento)) { //Parece que no sale de este bucle ni aunque le des a salir// comprueba que el evento existe
+                            if(comprobarEvento(nombreEvento)) { // comprueba que el evento existe
                                 preinscribirEvento(usuario, nombreEvento);
                                 break; 
                             }
@@ -248,10 +227,11 @@ void menuUsuario() {
                 break; 
             }
             case 3: 
-                return;  //vuelve a la función que le llamó
+                menu();
                 
             default: 
                 std::cout << "Opcion no valida. " << std::endl; 
+                menuUsuario();
         }
     }
 }

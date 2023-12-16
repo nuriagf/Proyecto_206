@@ -8,13 +8,13 @@ void crearEvento() {
     introducirNombre(nombre); //como eran funciones muy largas se ha creado una función especifica para el nombre
     
     introducirTipoEvento(tipo); //función que además de dar valor al tipo de evento también comprueba si el tipo es correcto
-    //prueba de que solo se ponga taller congreso ponencia y seminario
 
-    std::cout << "Introduzce una descripcion del evento (pulsa -enter- en una linea vacia para fianlizar)." << std::endl; 
+    std::cout << "Introduzce una descripcion del evento." << std::endl; 
 
     std::cin.ignore();//limpiar buffer
 
-    while (true) { //al igual que con el nombre la descripcion tiene espacios
+    while (true) { //la descripcion tiene espacios, asi se leen todos 
+    
         std::string linea;
         std::getline(std::cin, linea); 
                 
@@ -31,7 +31,6 @@ void crearEvento() {
     std::cout << "Introduzca aforo del evento." << std::endl; 
     std::cin >> aforo;
 
-    //prueba de que fecha de inicio no puede ser después de fecha final
     introducirFechas(fechaInicio, fechaFin); 
 
     std::cout << "Introduzca duracion del evento(en minutos)." << std::endl; 
@@ -47,18 +46,8 @@ void introducirNombre(std::string& nombre) {
 
     while(true) {
         std::cout << "Introduzca el nombre del evento (pulsa -enter- en una linea vacia para fianlizar)." << std::endl; 
-        //como las actividades pueden tener espacios con este método se recogerá toda la cadena de nombre
-        std::cin.ignore();
-        while (true) {
-            std::string linea;
-            std::getline(std::cin, linea); 
-                
-            if (linea.empty()) { //cuando haya un enter en la linea vacia se saldrá 
-                break;
-            }
-
-            nombre += linea + " "; //se unen lo que ya hay de nombre más lo que se va leyendo (linea) y se le añaden espacios
-        }
+        
+        std::cin >> nombre; 
 
         if(comprobarEvento(nombre)) { //una vez añadido el nombre se comprueba si no existe ya
             std::cout << "El nombre del evento ya existe. Introduce otro." << std::endl; 
@@ -81,7 +70,7 @@ bool comprobarEvento(std::string& nombre) {
     std::string linea; 
     std::string nombreEvento = "Nombre: " + nombre;
 
-    while (getline(archivo, linea)) {
+    while (std::getline(archivo, linea)) {
         if (linea == nombreEvento) {
             archivo.close();
             return true; // Evento encontrado
@@ -167,7 +156,7 @@ bool guardarEvento(std::string& nombre, std::string& tipo, std::string& descripc
     archivo << "Tipo: " << tipo << std::endl; 
     archivo << "Descripcion: " << descripcion << std::endl; 
     archivo << "Precio: " << precio << std::endl;
-    archivo << "Aforo: " << precio << std::endl;  
+    archivo << "Aforo: " << aforo << std::endl;  
     archivo << "Fecha inicio: " << fechaInicio << std::endl; 
     archivo << "Fecha fin: " << fechaFin << std::endl; 
     archivo << "Duracion: " << duracion << std::endl; 
