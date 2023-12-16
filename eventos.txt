@@ -22,5 +22,5 @@ Descripcion: Esto es un seminario de informatica
 Precio: 12
 Aforo: 100
 Fecha inicio: 2023-12-05
-Fecha fin: 2023-12-23
+Fecha fin: 2023-12-03
 Duracion: 90
