@@ -4,7 +4,6 @@
 void preinscribirEvento(std::string& usuario, std::string& nombreEvento) {
 
     //Puedo comprobar si el usuario ya se ha inscrito de antes o no
-
     int aforo=obtenerAforo(nombreEvento); //obtenemos el aforo
     
     inscripcion(usuario, nombreEvento, aforo);

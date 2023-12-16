@@ -72,7 +72,6 @@ void introducirNombre(std::string& nombre) {
 //función que comprueba en el fichero si existe un evento con ese nombre
 bool comprobarEvento(std::string& nombre) {
     std::ifstream archivo("eventos.txt");
-    archivo.seekg(0);
 
     if (!archivo.is_open()) {
         std::cerr << "Error al abrir el archivo de eventos." << std::endl;
@@ -80,11 +79,12 @@ bool comprobarEvento(std::string& nombre) {
     }
 
     std::string linea; 
-    
+    std::string nombreEvento = "Nombre: " + nombre;
+
     while (getline(archivo, linea)) {
-        if (linea.find("Nombre: " + nombre) == 0) { //si es 0 es que lo hemos encontrado, por lo que se devuelve true
+        if (linea == nombreEvento) {
             archivo.close();
-            return true; // Evento encontrado 
+            return true; // Evento encontrado
         }
     }
     
@@ -172,6 +172,7 @@ bool guardarEvento(std::string& nombre, std::string& tipo, std::string& descripc
     archivo << "Fecha fin: " << fechaFin << std::endl; 
     archivo << "Duracion: " << duracion << std::endl; 
     archivo << std::endl; 
+
     return true; 
 
     archivo.close();
