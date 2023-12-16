@@ -1,6 +1,6 @@
 Nombre: Informatica
 Tipo: seminario
-Descripcion: Esto es un seminario de quimica avanzada 
+Descripcion: Esto es un seminario de Informatica
 Precio: 0
 Aforo: 100
 Fecha inicio: 2024-01-11
