@@ -3,7 +3,7 @@ Tipo: seminario
 Descripcion: Esto es un seminario de quimica avanzada 
 Precio: 0
 Aforo: 100
-Fecha inicio: 2024-01-10
+Fecha inicio: 2024-01-11
 Fecha fin: 2024-01-29
 Duracion: 45
 
