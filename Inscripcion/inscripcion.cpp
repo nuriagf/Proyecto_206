@@ -26,7 +26,7 @@ bool inscripcion(std::string& usuario, std::string &nombreEvento, int aforo) {
     
     if(contador < aforo ) { //se comrprueba que el aforo del evento no se haya superado
         // Escribe el nuevo usuario y contraseña en el archivo
-        archivo << usuario << "-->" << nombreEvento << "\n";
+        archivo << usuario << "-->" << nombreEvento << std::endl;
         std::cout << "Inscripcion exitosa." << std::endl; 
     }
     else {
