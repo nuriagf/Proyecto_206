@@ -28,7 +28,6 @@ bool inscripcion(std::string& usuario, std::string &nombreEvento, int aforo) {
         // Escribe el nuevo usuario y contraseña en el archivo
         archivo << usuario << "-->" << nombreEvento << "\n";
         std::cout << "Inscripcion exitosa." << std::endl; 
-        aforo++; 
     }
     else {
         std::cout << "El aforo esta completo. " << std::endl; 
