@@ -147,7 +147,7 @@ void inicioUsuario() {
     int opcion; 
     std::cout << std::endl; 
     mostrarSeparador();
-    std::cout << "          MENU DE ASISTENTE          " << std::endl;
+    std::cout << "          MENU DE ASISTENTE4          " << std::endl;
     mostrarSeparador();
     std::cout << "1- Iniciar sesion." << std::endl; 
     std::cout << "2- Registrarse." << std::endl; 

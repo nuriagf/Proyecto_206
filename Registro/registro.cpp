@@ -2,7 +2,7 @@
 
 //registrarse 
 bool registrarUsuario(std::string& usuario, std::string& contrasena) {
-    if (validarUsuario(usuario, contrasena)) { //primero se comprueba que no exista ya el usuario
+    if (validarNombreUsuario(usuario)) { //primero se comprueba que no exista ya el usuario
         std::cout << "Este usuario ya existe." << std::endl; 
         return false;
     }
