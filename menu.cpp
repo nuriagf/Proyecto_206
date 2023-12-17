@@ -7,18 +7,18 @@ void mostrarSeparador() {
 void menu() {
     int opcion;
     mostrarSeparador();
-    std::cout << "           MENÚ PRINCIPAL             " << std::endl;
+    std::cout << "           MENU PRINCIPAL             " << std::endl;
     mostrarSeparador();
     std::cout << "1- Visitante." << std::endl;
     std::cout << "2- Usuario." << std::endl;
     std::cout << "3- Salir." << std::endl;
     mostrarSeparador();
-    std::cout << "Seleccione una opción: ";
+    std::cout << "Seleccione una opcion: ";
     std::cin >> opcion;
 
     switch (opcion) {
         case 1:
-            std::cout << "Esta opción solo muestra los eventos disponibles." << std::endl;
+            std::cout << "Esta opcion solo muestra los eventos disponibles." << std::endl;
             std::cout << std::endl;
             listarEvento();
             menu();
@@ -37,7 +37,7 @@ void menu() {
                     inicioUsuario();
                     menu();
                 } else {
-                    std::cout << "Correo no válido." << std::endl;
+                    std::cout << "Correo no valido." << std::endl;
                 }
             }
             break;
@@ -48,7 +48,7 @@ void menu() {
             break;
 
         default:
-            std::cout << "Opción no válida." << std::endl;
+            std::cout << "Opcion no valida." << std::endl;
             menu();
     }
 }
@@ -57,7 +57,7 @@ void menu() {
 //si es administrador inicia sesión directamente, ya que tiene cuenta ya creada
 void inicioAdministrador() {
     std::cout << std::endl; 
-    std::cout << "----------- INICIO SESIÓN -----------" << std::endl; 
+    std::cout << "----------- INICIO SESION -----------" << std::endl; 
     std::string usuario, contrasena;
 
     while (true) {
@@ -65,7 +65,7 @@ void inicioAdministrador() {
         std::cin >> usuario;
 
         if (comprobarUsuario(usuario)) {
-            std::cout << "Ingrese la contraseña: ";
+            std::cout << "Ingrese la contrasena: ";
             std::cin >> contrasena;
 
             if (inicioSesion(usuario, contrasena)) {
@@ -80,15 +80,15 @@ void menuAdministrador() {
     while (true) { // solo saldrá si el administrador selecciona salir
         int opcion; 
         mostrarSeparador();
-        std::cout << "        MENÚ ADMINISTRADOR          " << std::endl;
+        std::cout << "        MENU ADMINISTRADOR          " << std::endl;
         mostrarSeparador();
         std::cout << "1- Listar eventos." << std::endl; 
         std::cout << "2- Crear evento." << std::endl; 
         std::cout << "3- Eliminar evento." << std::endl; 
         std::cout << "4- Modificar evento." << std::endl; 
-        std::cout << "5- Cerrar sesión." << std::endl; 
+        std::cout << "5- Cerrar sesion." << std::endl; 
         mostrarSeparador();
-        std::cout << "Seleccione una opción: ";
+        std::cout << "Seleccione una opcion: ";
         std::cin >> opcion;
 
         switch (opcion) {
@@ -110,7 +110,7 @@ void menuAdministrador() {
                         eliminarEvento(nombre);
                         break;
                     } else {
-                        std::cout << "Nombre no encontrado. Inténtalo otra vez." << std::endl;
+                        std::cout << "Nombre no encontrado. Intentalo otra vez." << std::endl;
                     }
                 }
                 break; 
@@ -126,7 +126,7 @@ void menuAdministrador() {
                         modificarEvento(nombre);
                         break;
                     } else {
-                        std::cout << "Nombre no encontrado. Inténtalo otra vez." << std::endl;
+                        std::cout << "Nombre no encontrado. Intentalo otra vez." << std::endl;
                     }
                 }
                 break; 
@@ -137,7 +137,7 @@ void menuAdministrador() {
                 break;
 
             default: 
-                std::cout << "Opción no válida." << std::endl; 
+                std::cout << "Opcion no valida." << std::endl; 
                 menuAdministrador(); 
         }
     }
@@ -147,13 +147,13 @@ void inicioUsuario() {
     int opcion; 
     std::cout << std::endl; 
     mostrarSeparador();
-    std::cout << "          MENÚ DE USUARIO          " << std::endl;
+    std::cout << "          MENU DE ASISTENTE          " << std::endl;
     mostrarSeparador();
-    std::cout << "1- Iniciar sesión." << std::endl; 
+    std::cout << "1- Iniciar sesion." << std::endl; 
     std::cout << "2- Registrarse." << std::endl; 
-    std::cout << "3- Volver atrás." << std::endl;
+    std::cout << "3- Volver atras." << std::endl;
     mostrarSeparador();
-    std::cout << "Seleccione una opción: ";
+    std::cout << "Seleccione una opcion: ";
     std::cin >> opcion; 
 
     std::string usuario, contrasena;
@@ -164,14 +164,14 @@ void inicioUsuario() {
                 std::cout << "Ingrese el nombre de usuario: ";
                 std::cin >> usuario;
                 if (comprobarUsuario(usuario) && usuario[2] == '2') {
-                    std::cout << "Ingrese la contraseña: ";
+                    std::cout << "Ingrese la contrasena: ";
                     std::cin >> contrasena;
                     if (inicioSesion(usuario, contrasena)) {
                         menuUsuario();
                         menu();
                     }
                 } else {
-                    std::cout << "Usuario no válido." << std::endl;
+                    std::cout << "Usuario no valido." << std::endl;
                 }
             }
             break;
@@ -181,13 +181,13 @@ void inicioUsuario() {
                 std::cout << "Ingrese el nombre de usuario: ";
                 std::cin >> usuario;
                 if (comprobarUsuario(usuario) && usuario[2] == '2') {
-                    std::cout << "Ingrese la contraseña: ";
+                    std::cout << "Ingrese la contrasena: ";
                     std::cin >> contrasena;
                     if (registrarUsuario(usuario, contrasena)) {
                         inicioUsuario();
                     }
                 } else {
-                    std::cout << "Usuario no válido." << std::endl;
+                    std::cout << "Usuario no valido." << std::endl;
                 }
             }
             break; 
@@ -197,7 +197,7 @@ void inicioUsuario() {
             break;
 
         default: 
-            std::cout << "Opción no válida." << std::endl; 
+            std::cout << "Opcion no valida." << std::endl; 
             inicioUsuario();
     }
 }
@@ -206,13 +206,13 @@ void menuUsuario() {
     while (true) { // solo saldrá si el usuario selecciona salir
         int opcion; 
         mostrarSeparador();
-        std::cout << "          MENÚ DE USUARIO          " << std::endl;
+        std::cout << "          MENU DE ASISTENTE          " << std::endl;
         mostrarSeparador();
         std::cout << "1- Listar eventos." << std::endl; 
         std::cout << "2- Inscribirse a evento." << std::endl; 
-        std::cout << "3- Cerrar sesión." << std::endl; 
+        std::cout << "3- Cerrar sesion." << std::endl; 
         mostrarSeparador();
-        std::cout << "Seleccione una opción: ";
+        std::cout << "Seleccione una opcion: ";
         std::cin >> opcion; 
 
         switch (opcion) {
@@ -245,7 +245,7 @@ void menuUsuario() {
                 break;
                 
             default: 
-                std::cout << "Opción no válida." << std::endl; 
+                std::cout << "Opcion no valida." << std::endl; 
                 menuUsuario();
         }
     }
