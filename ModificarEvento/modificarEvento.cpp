@@ -14,11 +14,10 @@ bool modificarEvento(std::string& nombre) {
         vector.push_back(linea); 
     }
 
-    std:: string nuevoNombre, tipo, descripcion, fechaInicio, fechaFin; 
+    std:: string tipo, descripcion, fechaInicio, fechaFin; 
     int precio, aforo, duracion; 
 
     std::cout << "Se va a proceder a la modificacion del evento: " << nombre << std::endl; 
-    introducirNombre(nuevoNombre);
     introducirTipoEvento(tipo);
 
     std::cout << "Introduzce una descripcion del evento (pulsa -enter- en una linea vacia para fianlizar)." << std::endl; 
@@ -47,10 +46,10 @@ bool modificarEvento(std::string& nombre) {
 
     archivo.close();
 
-    guardarNuevosDatos(vector, nombre, nuevoNombre, tipo, descripcion, precio, aforo, fechaInicio, fechaFin, duracion);
+    guardarNuevosDatos(vector, nombre, tipo, descripcion, precio, aforo, fechaInicio, fechaFin, duracion);
 }
 
-bool guardarNuevosDatos(std::vector<std::string> vector, std::string& nombre, std::string& nuevoNombre, std::string& tipo, std::string& descripcion, int precio, int aforo, std::string& fechaInicio, std::string& fechaFin, int duracion) {
+bool guardarNuevosDatos(std::vector<std::string> vector, std::string& nombre, std::string& tipo, std::string& descripcion, int precio, int aforo, std::string& fechaInicio, std::string& fechaFin, int duracion) {
     std::ofstream archivo("eventos.txt");
 
     if (!archivo.is_open()) {
@@ -60,7 +59,7 @@ bool guardarNuevosDatos(std::vector<std::string> vector, std::string& nombre, st
 
     for (int i=0; i < vector.size(); i++) {
         if(vector[i].find("Nombre: " + nombre) != std::string::npos) {
-            vector[i] = "Nombre: " + nuevoNombre; 
+            vector[i] = "Nombre: " + nombre; 
             vector[i + 1] = "Tipo: " + tipo;
             vector[i + 2] = "Descripcion: " + descripcion;
             vector[i + 3] = "Precio: " + std::to_string(precio);

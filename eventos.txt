@@ -1,9 +1,9 @@
 Nombre: Informatica
-Tipo: seminario
-Descripcion: Esto es un seminario de Informatica
+Tipo: congreso
+Descripcion: Esto es un congreso de informatica 
 Precio: 0
 Aforo: 100
-Fecha inicio: 2024-01-11
-Fecha fin: 2024-01-29
+Fecha inicio: 2023-12-12
+Fecha fin: 2023-12-24
 Duracion: 45
 
